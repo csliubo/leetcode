@@ -4,8 +4,11 @@ __author__ = [
     '"liubo" <liubo.cs@hotmail.com>'
 ]
 
+# see the wiki https://en.wikipedia.org/wiki/Happy_number
 
 class Solution(object):
+    unhappy_circule = [4, 16, 37, 58, 89, 145, 42, 20]
+
     def isHappy(self, n):
         """
         :type n: int
@@ -26,7 +29,8 @@ class Solution(object):
             val += digit * digit
         if val == 1:
             return True
-
+        if val in self.unhappy_circule:
+            return False
         return self.isHappy(val)
 
 
