@@ -60,7 +60,7 @@ class Solution(object):
                 offset_max = 4
             else:
                 offset_max = s_len - i
-            for offset in xrange(offset_max, 0, -1):
+            for offset in range(offset_max, 0, -1):
                 ch = s[i:i + offset]
                 if ch in self._roman_int_:
                     current_val = self._roman_int_.get(ch)
@@ -111,9 +111,9 @@ s = Solution()
 # print s.romanToInt('CCC')
 # print s.romanToInt('CD')
 # print s.romanToInt('D')
-print s.romanToInt('DCLXVI')
+print(s.romanToInt('DCLXVI'))
 # print s.romanToInt('M')
-print s.romanToInt('MCMXCIX')
+print(s.romanToInt('MCMXCIX'))
 # print s.romanToInt('MM')
 # print s.romanToInt('MMM')
-print s.romanToInt('MMMCMXCIX')
+print(s.romanToInt('MMMCMXCIX'))

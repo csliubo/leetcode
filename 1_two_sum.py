@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+from typing import List
 
 __author__ = [
     '"liubo" <liubo.cs@hotmail.com>'
@@ -6,10 +7,18 @@ __author__ = [
 
 
 class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        nums_dict = {}
+        for i, num in enumerate(nums):
+            if target - num in nums_dict:
+                return [nums_dict[target - num], i]
+            nums_dict[num] = i
+
     # @param {integer[]} nums
     # @param {integer} target
     # @return {integer[]}
-    def twoSum(self, nums, target):
+
+    def twoSum2(self, nums, target):
         pos = {}
         pos_2 = {}
         for i in range(0, nums.__len__()):
@@ -48,6 +57,6 @@ class Solution:
 
 
 s = Solution()
-numbers = [-1,-2,-3,-4,-5]
-target = -8
-print s.twoSum(numbers, target)
+numbers = [3,0,3,1,2]
+target = 6
+print(s.twoSum(numbers, target))
