@@ -24,6 +24,7 @@ class Solution:
             if not new_head:
                 new_head = new_node
                 prev = new_head
+                cur = cur.next
             else:
                 prev.next = new_node
                 cur, prev = cur.next, prev.next
@@ -31,8 +32,8 @@ class Solution:
         while cur:
             if cur.random:
                 cur.random = nodes_map.get(cur.random)
+            cur = cur.next
         return new_head
-
 
 if __name__ == "__main__":
     l1 = to_node_list([8, 4, 3, 2, 5, 2])

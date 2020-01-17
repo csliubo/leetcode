@@ -52,11 +52,16 @@ def to_node_list(lst):
 
 
 def to_list(head):
+    if not head:
+        return None
     tmp = head
     lst = []
     while tmp != None:
+
         lst.append(tmp.val)
         tmp = tmp.next
+        if tmp == head:
+            break
     return lst
 
 
@@ -80,6 +85,11 @@ def to_list_right(head):
         if tmp == head:
             break
     return lst
+
+
+def compare_list(l1, l2):
+    if l1 == l2:
+        return True
 
 
 def drawtree(root):
