@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+from utils import deserialize
 
 __author__ = [
     '"liubo" <liubo.cs@hotmail.com>'
@@ -14,25 +15,32 @@ class TreeNode(object):
 
 
 class Solution(object):
-    def maxDepth(self, root):
+    def minDepth(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
 
         if root:
-            return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+            if root.left and root.right:
+                return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+            elif root.left or root.right:
+                if root.left:
+                    return 1 + self.minDepth(root.left)
+                if root.right:
+                    return 1 + self.minDepth(root.right)
+            else:
+                return 1
         return 0
 
 
-node_one = TreeNode(1)
-
-node_two = TreeNode(2)
-node_three = TreeNode(3)
-
-node_one.left = node_two
-
-node_two.left = node_three
-
+root = deserialize('[1,2,2,3,4,4,3]')
 s = Solution()
-print s.maxDepth(node_one)
+r = s.minDepth(root)
+print(r)
+root = deserialize('[3,9,20,null,null,15,7]')
+r = s.minDepth(root)
+print(r)
+root = deserialize('[3,9]')
+r = s.minDepth(root)
+print(r)

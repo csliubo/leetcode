@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+from operator import itemgetter, matmul
 
 __author__ = [
     '"liubo" <liubo.cs@hotmail.com>'
@@ -33,5 +34,47 @@ def drawtree(root):
     t.hideturtle()
     turtle.mainloop()
 
-# def lst2tree(lst):
-#
+
+class Student:
+    def __init__(self, name, grade, age):
+        self.name = name
+        self.grade = grade
+        self.age = age
+
+    def __repr__(self):
+        return repr((self.name, self.grade, self.age))
+
+    def __getitem__(self, item):
+        if item == 0:
+            return self.name
+        elif item == 1:
+            return self.grade
+        else:
+            return self.age
+
+
+student_tuples = [
+    ('john', 'A', 15),
+    ('jane', 'B', 12),
+    ('dave', 'B', 10),
+]
+student_objects = [
+    Student('john', 'A', 15),
+    Student('jane', 'B', 12),
+    Student('dave', 'B', 10),
+]
+r = sorted(student_tuples, key=itemgetter(2))
+print(r)
+r = sorted(student_objects, key=itemgetter(2))
+print(r)
+l = [_ for _ in map(lambda x: x + 1, [_ for _ in range(10)])]
+print(l)
+dict_vec = {'y': 0, 'z': 1, 'x': 1}
+
+import collections
+def p(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+
+p(*dict_vec)

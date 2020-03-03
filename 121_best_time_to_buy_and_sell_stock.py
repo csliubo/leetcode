@@ -27,4 +27,7 @@ class Solution(object):
 
 
 s = Solution()
-print s.maxProfit([7, 1, 5, 3, 6, 4])
+r = s.maxProfit([7, 1, 5, 3, 6, 4])
+print(r)
+r= s.maxProfit([7,6,4,3,1])
+print(r)
